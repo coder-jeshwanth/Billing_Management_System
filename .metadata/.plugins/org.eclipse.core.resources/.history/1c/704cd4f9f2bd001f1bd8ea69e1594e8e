@@ -1,0 +1,11 @@
+<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page import="java.util.*" import="com.project.entity.Cashier" %>
+<html>
+<body>
+<h2>Cashier List</h2>
+<%
+                    List<Cashier> cashiers = (List<Cashier>) request.getAttribute("cashierList");
+                    for (Cashier cashier : cashiers) {
+%>
+</body>
+</html>

@@ -1,0 +1,8 @@
+package com.project.servlets;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/DeleteCashier")
+public class DeleteCashier {
+
+}

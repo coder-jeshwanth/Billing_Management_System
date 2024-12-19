@@ -1,0 +1,37 @@
+<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page import="java.util.*" import="com.project.entity.Cashier" %>
+<html>
+<body>
+<h2>Cashier List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%
+                    List<Cashier> cashiers = (List<Cashier>) request.getAttribute("cashierList");
+                    for (Cashier cashier : cashiers) {
+                %>
+                <tr>
+                    <td><%= cashier.getUsername() %></td>
+                    <td>
+                        <form action="editCashier.jsp" method="get" style="display:inline;">
+                            <input type="hidden" name="username" value="<%= cashier.getUsername() %>">
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form action="DeleteCashierServlet" method="post" style="display:inline;">
+                            <input type="hidden" name="username" value="<%= cashier.getUsername() %>">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
+            </tbody>
+        </table>
+</body>
+</html>

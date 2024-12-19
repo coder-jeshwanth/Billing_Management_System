@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<% Cashier cashiers = request.getAttribute("cashier");%>
+<h3>Add New Cashier</h3>
+        <form action="SaveUpdatedCashier" method="post">
+            <label for="username">Cashier Username:</label>
+            <input type="text" name="username" required><br><br>
+
+            <label for="password">Cashier Password:</label>
+            <input type="password" name="password" required><br><br>
+
+            <button type="submit">Update Cashier</button>
+        </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cashier List</title>
+</head>
+<body>
+<%@ page import="java.util.*" import="com.example.admin*" %>
+    <h1>Cashier List</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+        </tr>
+        <%
+            List<com.example.admin.entity.Cashier> cashiers = 
+                (List<com.example.admin.entity.Cashier>) request.getAttribute("cashiers");
+            if (cashiers != null) {
+                for (com.example.admin.entity.Cashier cashier : cashiers) {
+        %>
+        <tr>
+            <td><%= cashier.getId() %></td>
+            <td><%= cashier.getUsername() %></td>
+        </tr>
+        <%
+                }
+            } else {
+        %>
+        <tr>
+            <td colspan="2">No cashiers found.</td>
+        </tr>
+        <%
+            }
+        %>
+    </table>
+</body>
+</html>

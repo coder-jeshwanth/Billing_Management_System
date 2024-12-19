@@ -1,0 +1,28 @@
+package com.project.servlets;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.project.DAO.CashierDAO;
+import com.project.entity.Cashier;
+
+@WebServlet("/deleteCashier")
+public class DeleteCashier extends HttpServlet {
+	CashierDAO cashierDAO ;
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		int id = Integer.parseInt((String)req.getParameter("cashierId"));
+        
+		cashierDAO.deleteById(id);
+		
+		resp.sendRedirect("CashierServlet");
+        
+        
+	}
+}

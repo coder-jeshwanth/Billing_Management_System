@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<%@page import="java.sql.ResultSet"%>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+<% String username = (String)request.getAttribute("username"); %>
+    <h1>Welcome, Admin!</h1>
+    <a href="CashierServlet">View Cashier List</a><br><br>
+
+    <h2>Add New Cashier</h2>
+    <form action="CashierServlet" method="post">
+        <label for="username">Cashier Username:</label>
+        <input type="text" name="username" required><br><br>
+        <label for="password">Cashier Password:</label>
+        <input type="password" name="password" required><br><br>
+        <button type="submit">Add Cashier</button>
+    </form>
+</body>
+</html>

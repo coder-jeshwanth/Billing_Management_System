@@ -1,0 +1,30 @@
+package com.project.servlets;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.project.DAO.AdminDAO;
+import com.project.entity.Admin;
+
+@WebServlet("/AdminSignupServlet")
+public class AdminSignupServlet extends HttpServlet {
+    private AdminDAO adminDAO = new AdminDAO();
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        Admin admin = new Admin();
+        admin.setUsername(username);
+        admin.setPassword(password);
+
+        adminDAO.saveAdmin(admin);
+
+        response.sendRedirect("AdminSigninServlet.jsp");
+    }
+}

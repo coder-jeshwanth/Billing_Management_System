@@ -1,0 +1,26 @@
+<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page import="java.util.*" import="com.project.entity.Cashier" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<% Cashier cashier = (Cashier)request.getAttribute("cashier");%>
+<h3>Add New Cashier</h3>
+        <form action="SaveUpdatedCashier" method="post">
+        	<label for="id">Cashier Id:</label>
+            <input type="text" value="<%=cashier.getId()%>" name="id" readonly="true" required ><br><br>
+            <label for="username">Cashier Username:</label>
+            <input type="text" value="<%=cashier.getUsername()%>" name="username" readonly="true" required><br><br>
+
+            <label for="password">Cashier Password:</label>
+            <input type="password" value="<%=cashier.getPassword()%>" name="password" required><br><br>
+
+            <button type="submit">Update Cashier</button>
+        </form>
+</body>
+</html>

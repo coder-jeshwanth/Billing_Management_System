@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<%@page import="javax.servlet.http.HttpSession"%>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<%
+            // Retrieve admin name from session
+            HttpSession session = request.getSession(false);
+            String adminName = (session != null) ? (String) session.getAttribute("adminName") : null;
+
+            if (adminName == null) {
+                // Redirect to login if session is invalid
+                response.sendRedirect("adminAuth.jsp");
+            }
+        %>
+    <h1>Welcome, <%= username %></h1>
+    <a href="CashierServlet">View Cashier List</a><br><br>
+
+    <h2>Add New Cashier</h2>
+    <form action="CashierServlet" method="post">
+        <label for="username">Cashier Username:</label>
+        <input type="text" name="username" required><br><br>
+        <label for="password">Cashier Password:</label>
+        <input type="password" name="password" required><br><br>
+        <button type="submit">Add Cashier</button>
+    </form>
+</body>
+</html>
