@@ -20,8 +20,9 @@
     <table border="1">
         <%
             List<Cashier> cashiers = (List<Cashier>) request.getAttribute("cashiers");
-            if (cashiers != null) {
+            if (cashiers != null && !cashiers.isEmpty()) {
         %>
+        
         <tr>
             	<th>id</th>
             	<th>userName</th>
